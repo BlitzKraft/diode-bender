@@ -4,7 +4,7 @@ module diode() {
 	color("red")
 	cylinder(r=1.1, h=4.1, center=true);
 	color("black")
-	cube([0.29, 0.29, 60], center=true);
+	cube([0.5, 0.5, 60], center=true);
 }
 
 /* sword */
@@ -25,14 +25,25 @@ module sword() {
 			translate([0, length-1, 5]) rotate([0, 90, 0]) rotate([0, 0, 30])
 			cylinder(r=5.7735, h=7, $fn=6);
 			*/
+			translate([0, 0, 7])
+			scale([1, 1, 1.5]) {
+				translate([7, 10, 0])
+				rotate([90, 0, 0])
+				difference() {
+					cylinder(r=2, h=20, center=true);
+					cube([10, 10, 0.5], center=true);
+				}
+				translate([0, 10, 0])
+				rotate([90, 0, 0])
+				difference() {
+					cylinder(r=2, h=20, center=true);
+					cube([10, 10, 0.5], center=true);
+				}
+			}
 		}
 		union() {
 			translate([cube_width/2, length/2, 10])
 			rotate([0, 90, 0])
-			diode();
-			translate([cube_width, length/2, 20])
-			diode();
-			translate([0, length/2, 20])
 			diode();
 		}
 	}
@@ -70,6 +81,7 @@ module sheath() {
 difference() {
 	sword();
 	union() {
+		rotate([0, 45, 0])
 		translate([15, 0, 0])
 		rotate([0, 0, 90])
 		serrations();
@@ -80,6 +92,7 @@ difference() {
 		serrations();
 		*/
 		// length - length value from above
+		rotate([0, 45, 0])
 		translate([0, 20, 0])
 		mirror([0, 1, 0])
 		translate([15, 0, 0])
