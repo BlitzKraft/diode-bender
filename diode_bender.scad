@@ -18,18 +18,18 @@ module sword() {
 	difference() {
 		union() {
 			cube([cube_width, length, 10]);
-			translate([0, 0, 7])
+			translate([0, 0, 8.5])
 			scale([1, 1, 1.5]) {
 				translate([7, 10, 0])
 				rotate([90, 0, 0])
 				difference() {
-					cylinder(r=2, h=20, center=true);
+					cylinder(r=1, h=20, center=true);
 					cube([10, 10, 2], center=true);
 				}
 				translate([0, 10, 0])
 				rotate([90, 0, 0])
 				difference() {
-					cylinder(r=2, h=20, center=true);
+					cylinder(r=1, h=20, center=true);
 					cube([10, 10, 2], center=true);
 				}
 			}
