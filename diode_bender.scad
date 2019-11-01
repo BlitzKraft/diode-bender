@@ -18,26 +18,19 @@ module sword() {
 	difference() {
 		union() {
 			cube([cube_width, length, 10]);
-			// pointy extensions, disregarded in favour of serrations.
-			/*
-			translate([0, 0, 5]) rotate([0, 90, 0]) rotate([0, 0, 30])
-			cylinder(r=5.7735, h=7, $fn=6);
-			translate([0, length-1, 5]) rotate([0, 90, 0]) rotate([0, 0, 30])
-			cylinder(r=5.7735, h=7, $fn=6);
-			*/
 			translate([0, 0, 7])
 			scale([1, 1, 1.5]) {
 				translate([7, 10, 0])
 				rotate([90, 0, 0])
 				difference() {
 					cylinder(r=2, h=20, center=true);
-					cube([10, 10, 0.5], center=true);
+					cube([10, 10, 2], center=true);
 				}
 				translate([0, 10, 0])
 				rotate([90, 0, 0])
 				difference() {
 					cylinder(r=2, h=20, center=true);
-					cube([10, 10, 0.5], center=true);
+					cube([10, 10, 2], center=true);
 				}
 			}
 		}
@@ -98,7 +91,7 @@ difference() {
 		translate([15, 0, 0])
 		rotate([0, 0, 90])
 		serrations();
-		translate([1.2, 1.5, 2])
+		translate([1.2, 1.5, 4])
 		scale([0.7, 0.65, 1])
 		color("red")
 		rotate([0, -180, 0])
